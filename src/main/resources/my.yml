@@ -1,0 +1,13 @@
+
+redis:
+  host: 1
+  port: 6379
+  timeOut: 2000
+  maxTotal: 1000
+  maxIdle: 50
+  minIdle: 10
+  maxWaitMillis: 300
+  timeBetweenEvictionRunsMillis: 60000
+  testOnBorrow: false
+  testOnReturn: false
+  testWhileIdle: true
