@@ -6,9 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
 
-/**
- * Created by LIUMI969 on 2018/3/21.
- */
+
 @SpringBootApplication
 @EnableAutoConfiguration
 public class App {

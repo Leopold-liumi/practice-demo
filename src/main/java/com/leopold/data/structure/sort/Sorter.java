@@ -3,9 +3,7 @@ package com.leopold.data.structure.sort;
 import java.util.Arrays;
 import java.util.Random;
 
-/**
- * Created by LIUMI969 on 2018/3/16.
- */
+
 public class Sorter {
 
     public static int[] originalBubbleSort(int[] elements){
@@ -125,6 +123,8 @@ public class Sorter {
         printArray(finalBubbleSort(Arrays.copyOf(elements,elements.length)));
 
         printArray(insertSort(Arrays.copyOf(elements,elements.length)));
+
+        printArray(selectSort(Arrays.copyOf(elements,elements.length)));
     }
 
     public static void printArray(int[] elements){
