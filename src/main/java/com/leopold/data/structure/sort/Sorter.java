@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Sorter {
 
-    public static int[] originalBubbleSort(int[] elements){
+    private static int[] originalBubbleSort(int[] elements){
 
         for (int i = 0; i < elements.length - 1; i++) {
 
@@ -22,7 +22,7 @@ public class Sorter {
     }
 
 
-    public static int[] optimizedBubbleSort(int[] elements) {
+    private static int[] optimizedBubbleSort(int[] elements) {
 
         for (int i = 0; i < elements.length; i++) {
 
@@ -38,7 +38,7 @@ public class Sorter {
     }
 
 
-    public static int[] finalBubbleSort(int[] elements){
+    private static int[] finalBubbleSort(int[] elements){
 
         boolean ascendedOrder = true;
         for (int i = 0; i < elements.length && ascendedOrder; i++) {
@@ -59,7 +59,7 @@ public class Sorter {
 
 
 
-    public static int[] insertSort(int[] elements){
+    private static int[] insertSort(int[] elements){
 
         for (int i = 0; i < elements.length -1; i++) {
 
@@ -105,6 +105,43 @@ public class Sorter {
     }
 
 
+    private static void quickSort(int[] elements,int startIndex,int endIndex){
+
+            int startIndexTemp = startIndex;
+            int endIndexTemp = endIndex;
+            int pivot = elements[startIndex];
+
+            if(startIndex < endIndex){
+
+                while (startIndex < endIndex){
+
+                    while (startIndex < endIndex && elements[endIndex] > pivot){
+                        endIndex --;
+                    }
+                    if(startIndex < endIndex){
+                        elements[startIndex] = elements[endIndex];
+                        startIndex ++;
+                    }
+
+                    while (startIndex < endIndex && elements[startIndex] < pivot){
+                        startIndex ++;
+                    }
+                    if(startIndex < endIndex){
+                        elements[endIndex] = elements[startIndex];
+                        endIndex --;
+                    }
+                }
+
+                elements[startIndex] = pivot;
+
+                quickSort(elements,startIndexTemp,startIndex -1);
+                quickSort(elements,startIndex+1,endIndexTemp);
+            }
+
+    }
+
+
+
 
 
     public static void main(String[] args) {
@@ -116,7 +153,7 @@ public class Sorter {
 
         printArray(elements);
 
-        printArray(originalBubbleSort(Arrays.copyOf(elements,elements.length)));
+/*        printArray(originalBubbleSort(Arrays.copyOf(elements,elements.length)));
 
         printArray(optimizedBubbleSort(Arrays.copyOf(elements,elements.length)));
 
@@ -124,7 +161,10 @@ public class Sorter {
 
         printArray(insertSort(Arrays.copyOf(elements,elements.length)));
 
-        printArray(selectSort(Arrays.copyOf(elements,elements.length)));
+        printArray(selectSort(Arrays.copyOf(elements,elements.length)));*/
+        int[] quickSortArray = Arrays.copyOf(elements, elements.length);
+        quickSort(quickSortArray,0,elements.length-1);
+        printArray(quickSortArray);
     }
 
     public static void printArray(int[] elements){
